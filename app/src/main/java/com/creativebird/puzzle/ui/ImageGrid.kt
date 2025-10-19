@@ -64,7 +64,12 @@ fun ImageGrid(
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp),
+                .padding(
+                    start = 0.1f.times(LocalContext.current.resources.displayMetrics.widthPixels).dp / LocalContext.current.resources.displayMetrics.density,
+                    end = 0.1f.times(LocalContext.current.resources.displayMetrics.widthPixels).dp / LocalContext.current.resources.displayMetrics.density,
+                    top = 0.1f.times(LocalContext.current.resources.displayMetrics.heightPixels).dp / LocalContext.current.resources.displayMetrics.density,
+                    bottom = 0.1f.times(LocalContext.current.resources.displayMetrics.heightPixels).dp / LocalContext.current.resources.displayMetrics.density
+                ),
             contentAlignment = Alignment.Center
         ) {
             Box(
