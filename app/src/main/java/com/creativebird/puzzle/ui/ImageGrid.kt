@@ -2,6 +2,7 @@ package com.creativebird.puzzle.ui
 
 import android.graphics.BitmapFactory
 import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,6 +21,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
@@ -60,7 +62,10 @@ fun ImageGrid(
     val tilePositions = remember { mutableMapOf<Int, Offset>() }
     val tileSize = remember { mutableStateOf(IntSize.Zero) }
 
-    Box(modifier = modifier.fillMaxSize()) {
+    Box(modifier = modifier
+        .fillMaxSize()
+        .background(Color(0xD5CFB7FF))
+    ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()

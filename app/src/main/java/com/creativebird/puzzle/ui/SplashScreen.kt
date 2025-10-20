@@ -1,6 +1,7 @@
 package com.creativebird.puzzle.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -32,7 +33,9 @@ fun SplashScreen(
     }
 
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xD5CFB7FF)),
         contentAlignment = Alignment.Center
     ) {
         // Hintergrundbild im Fullscreen

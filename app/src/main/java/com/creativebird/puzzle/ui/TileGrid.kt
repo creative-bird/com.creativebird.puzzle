@@ -43,7 +43,7 @@ fun TileGrid(
                 modifier = Modifier
                     .fillMaxSize()
                     .weight(1f)
-                    .border(1.dp, Color.LightGray)
+                    .border(1.dp, Color(0xFFF0EEE6))
                     .onGloballyPositioned { coordinates ->
                         tilePositions[row] = coordinates.positionInWindow()
                         if (tileSize.value == IntSize.Zero) {

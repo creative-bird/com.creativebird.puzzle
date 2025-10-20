@@ -7,9 +7,9 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
@@ -43,12 +43,15 @@ fun DraggedTileOverlay(
                             width = tileSize.width.toDp(),
                             height = tileSize.height.toDp()
                         )
-                        .graphicsLayer {
-                            shadowElevation = 16f
-                            translationX = 6f
-                            translationY = 10f
+                        .drawBehind {
+                            val shadowColor = Color(0x4D73726C)
+                            drawRect(
+                                color = shadowColor,
+                                topLeft = Offset(3.dp.toPx(), 5.dp.toPx()),
+                                size = size
+                            )
                         }
-                        .border(1.dp, Color.LightGray)
+                        .border(1.dp, Color(0xFFF0EEE6))
                 ) {
                     TileImage(
                         bitmap = imageParts[imageIndex],
