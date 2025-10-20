@@ -34,19 +34,26 @@ import androidx.compose.ui.unit.dp
 data class ImageOption(
     val id: Int,
     val resourceId: Int,
-    val title: String
+    val title: String,
+    val text: String
 )
 
 @Composable
 fun ImageSelectionScreen(
     availableImages: List<Int>,
+    availableTexts: List<String>,
     artistName: String,
-    onImageSelected: (Int) -> Unit,
+    onImageSelected: (Int, String) -> Unit,
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val images = availableImages.mapIndexed { index, resourceId ->
-        ImageOption(index + 1, resourceId, "Bild ${index + 1}")
+        ImageOption(
+            index + 1,
+            resourceId,
+            "Bild ${index + 1}",
+            availableTexts.getOrElse(index) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
+        )
     }
 
     Box(modifier = modifier
@@ -76,7 +83,7 @@ fun ImageSelectionScreen(
                 items(images) { image ->
                     ImageCard(
                         imageOption = image,
-                        onClick = { onImageSelected(image.resourceId) }
+                        onClick = { onImageSelected(image.resourceId, image.text) }
                     )
                 }
             }

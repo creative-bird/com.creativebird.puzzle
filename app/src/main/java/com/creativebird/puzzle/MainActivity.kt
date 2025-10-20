@@ -26,8 +26,10 @@ class MainActivity : ComponentActivity() {
             CreativebirdTheme {
                 var showSplash by remember { mutableStateOf(true) }
                 var availableImages by remember { mutableStateOf<List<Int>?>(null) }
+                var availableTexts by remember { mutableStateOf<List<String>?>(null) }
                 var selectedArtistName by remember { mutableStateOf<String?>(null) }
                 var selectedImageId by remember { mutableStateOf<Int?>(null) }
+                var selectedImageText by remember { mutableStateOf<String?>(null) }
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     when {
@@ -42,8 +44,9 @@ class MainActivity : ComponentActivity() {
                         // Screen 1: Künstlerauswahl
                         availableImages == null -> {
                             ArtistSelectionScreen(
-                                onArtistSelected = { imageIds, artistName ->
+                                onArtistSelected = { imageIds, imageTexts, artistName ->
                                     availableImages = imageIds
+                                    availableTexts = imageTexts
                                     selectedArtistName = artistName
                                 },
                                 modifier = Modifier.padding(innerPadding)
@@ -53,12 +56,15 @@ class MainActivity : ComponentActivity() {
                         selectedImageId == null -> {
                             ImageSelectionScreen(
                                 availableImages = availableImages!!,
+                                availableTexts = availableTexts!!,
                                 artistName = selectedArtistName ?: "",
-                                onImageSelected = { imageId ->
+                                onImageSelected = { imageId, imageText ->
                                     selectedImageId = imageId
+                                    selectedImageText = imageText
                                 },
                                 onBackPressed = {
                                     availableImages = null
+                                    availableTexts = null
                                     selectedArtistName = null
                                 },
                                 modifier = Modifier.padding(innerPadding)
@@ -68,8 +74,10 @@ class MainActivity : ComponentActivity() {
                         else -> {
                             ImageGrid(
                                 imageResourceId = selectedImageId!!,
+                                imageText = selectedImageText ?: "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
                                 onBackPressed = {
                                     selectedImageId = null
+                                    selectedImageText = null
                                 },
                                 modifier = Modifier.padding(innerPadding)
                             )
