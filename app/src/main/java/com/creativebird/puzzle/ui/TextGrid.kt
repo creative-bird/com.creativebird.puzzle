@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -34,7 +35,10 @@ fun TextGrid(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(32.dp)
+                .padding(
+                    horizontal = LocalContext.current.resources.displayMetrics.widthPixels.times(0.3f).div(LocalContext.current.resources.displayMetrics.density).dp,
+                    vertical = LocalContext.current.resources.displayMetrics.heightPixels.times(0.3f).div(LocalContext.current.resources.displayMetrics.density).dp
+                )
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {

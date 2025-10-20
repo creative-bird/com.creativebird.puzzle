@@ -85,7 +85,7 @@ fun ArtistSelectionScreen(
         LazyVerticalGrid(
             columns = GridCells.Fixed(1),
             contentPadding = PaddingValues(
-                horizontal = LocalContext.current.resources.displayMetrics.widthPixels.times(0.1f).div(LocalContext.current.resources.displayMetrics.density).dp,
+                horizontal = LocalContext.current.resources.displayMetrics.widthPixels.times(0.3f).div(LocalContext.current.resources.displayMetrics.density).dp,
                 vertical = 16.dp
             ),
             verticalArrangement = Arrangement.spacedBy(32.dp),
