@@ -27,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 data class ImageOption(
@@ -39,6 +38,7 @@ data class ImageOption(
 @Composable
 fun ImageSelectionScreen(
     availableImages: List<Int>,
+    artistName: String,
     onImageSelected: (Int) -> Unit,
     onBackPressed: () -> Unit,
     modifier: Modifier = Modifier
@@ -56,14 +56,14 @@ fun ImageSelectionScreen(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Wähle ein Bild",
+                text = artistName,
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 32.dp)
             )
 
             LazyVerticalGrid(
-                columns = GridCells.Fixed(1),
+                columns = GridCells.Fixed(3),
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -105,23 +105,13 @@ fun ImageCard(
             .clickable(onClick = onClick),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
     ) {
-        Column {
-            Image(
-                painter = painterResource(id = imageOption.resourceId),
-                contentDescription = imageOption.title,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(1f),
-                contentScale = ContentScale.Crop
-            )
-            Text(
-                text = imageOption.title,
-                style = MaterialTheme.typography.titleMedium,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp)
-            )
-        }
+        Image(
+            painter = painterResource(id = imageOption.resourceId),
+            contentDescription = imageOption.title,
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(1f),
+            contentScale = ContentScale.Crop
+        )
     }
 }

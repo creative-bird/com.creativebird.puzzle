@@ -26,6 +26,7 @@ class MainActivity : ComponentActivity() {
             CreativebirdTheme {
                 var showSplash by remember { mutableStateOf(true) }
                 var availableImages by remember { mutableStateOf<List<Int>?>(null) }
+                var selectedArtistName by remember { mutableStateOf<String?>(null) }
                 var selectedImageId by remember { mutableStateOf<Int?>(null) }
 
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
@@ -41,8 +42,9 @@ class MainActivity : ComponentActivity() {
                         // Screen 1: Künstlerauswahl
                         availableImages == null -> {
                             ArtistSelectionScreen(
-                                onArtistSelected = { imageIds ->
+                                onArtistSelected = { imageIds, artistName ->
                                     availableImages = imageIds
+                                    selectedArtistName = artistName
                                 },
                                 modifier = Modifier.padding(innerPadding)
                             )
@@ -51,11 +53,13 @@ class MainActivity : ComponentActivity() {
                         selectedImageId == null -> {
                             ImageSelectionScreen(
                                 availableImages = availableImages!!,
+                                artistName = selectedArtistName ?: "",
                                 onImageSelected = { imageId ->
                                     selectedImageId = imageId
                                 },
                                 onBackPressed = {
                                     availableImages = null
+                                    selectedArtistName = null
                                 },
                                 modifier = Modifier.padding(innerPadding)
                             )
