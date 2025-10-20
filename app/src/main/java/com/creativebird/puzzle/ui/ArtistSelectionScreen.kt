@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -46,14 +47,8 @@ fun ArtistSelectionScreen(
             id = 1,
             resourceId = R.drawable.k1,
             name = "Künstler 1",
-            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3),
+            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3),
             imageTexts = listOf(
-                "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
-                "Kreativität ist Intelligenz die Spaß hat",
-                "Kunst wäscht den Staub des Alltags von der Seele",
-                "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
-                "Kreativität ist Intelligenz die Spaß hat",
-                "Kunst wäscht den Staub des Alltags von der Seele",
                 "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
                 "Kreativität ist Intelligenz die Spaß hat",
                 "Kunst wäscht den Staub des Alltags von der Seele"
@@ -63,139 +58,38 @@ fun ArtistSelectionScreen(
             id = 2,
             resourceId = R.drawable.k2,
             name = "Künstler 2",
-            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22),
+            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22),
             imageTexts = listOf(
-                "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
-                "Kreativität ist Intelligenz die Spaß hat",
-                "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
-                "Kreativität ist Intelligenz die Spaß hat",
-                "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
-                "Kreativität ist Intelligenz die Spaß hat",
                 "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
                 "Kreativität ist Intelligenz die Spaß hat",
                 "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen"
             )
-        ),
-        ArtistOption(
-            id = 3,
-            resourceId = R.drawable.k1,
-            name = "Künstler 3",
-            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 4,
-            resourceId = R.drawable.k2,
-            name = "Künstler 4",
-            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 5,
-            resourceId = R.drawable.k1,
-            name = "Künstler 5",
-            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 6,
-            resourceId = R.drawable.k2,
-            name = "Künstler 6",
-            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 7,
-            resourceId = R.drawable.k1,
-            name = "Künstler 7",
-            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 8,
-            resourceId = R.drawable.k2,
-            name = "Künstler 8",
-            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 9,
-            resourceId = R.drawable.k1,
-            name = "Künstler 9",
-            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 10,
-            resourceId = R.drawable.k2,
-            name = "Künstler 10",
-            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 11,
-            resourceId = R.drawable.k1,
-            name = "Künstler 11",
-            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 12,
-            resourceId = R.drawable.k2,
-            name = "Künstler 12",
-            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 13,
-            resourceId = R.drawable.k1,
-            name = "Künstler 13",
-            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 14,
-            resourceId = R.drawable.k2,
-            name = "Künstler 14",
-            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 15,
-            resourceId = R.drawable.k1,
-            name = "Künstler 15",
-            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3, R.drawable.p1, R.drawable.p2, R.drawable.p3),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
-        ),
-        ArtistOption(
-            id = 16,
-            resourceId = R.drawable.k2,
-            name = "Künstler 16",
-            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22, R.drawable.p33, R.drawable.p22),
-            imageTexts = List(9) { "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen" }
         )
     )
 
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(Color(0xD5CFB7FF))
+            .background(Color(0xFFFAF9F5))
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "Künstler",
+            text = "KÜNSTLER",
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 32.dp)
         )
 
         LazyVerticalGrid(
-            columns = GridCells.Fixed(4),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp)
+            columns = GridCells.Fixed(1),
+            contentPadding = PaddingValues(
+                horizontal = LocalContext.current.resources.displayMetrics.widthPixels.times(0.1f).div(LocalContext.current.resources.displayMetrics.density).dp,
+                vertical = 16.dp
+            ),
+            verticalArrangement = Arrangement.spacedBy(32.dp),
+            horizontalArrangement = Arrangement.Center
         ) {
             items(artists) { artist ->
                 ArtistCard(

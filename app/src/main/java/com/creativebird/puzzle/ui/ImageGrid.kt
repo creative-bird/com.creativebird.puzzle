@@ -78,7 +78,7 @@ fun ImageGrid(
 
     Box(modifier = modifier
         .fillMaxSize()
-        .background(Color(0xD5CFB7FF))
+        .background(Color(0xFFFAF9F5))
     ) {
         Box(
             modifier = Modifier

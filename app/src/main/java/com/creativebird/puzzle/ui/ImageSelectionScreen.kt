@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -58,7 +59,7 @@ fun ImageSelectionScreen(
 
     Box(modifier = modifier
         .fillMaxSize()
-        .background(Color(0xD5CFB7FF))
+        .background(Color(0xFFFAF9F5))
     ) {
         Column(
             modifier = Modifier
@@ -68,7 +69,7 @@ fun ImageSelectionScreen(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = artistName,
+                text = artistName.uppercase(),
                 style = MaterialTheme.typography.headlineMedium,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 32.dp)
@@ -76,7 +77,10 @@ fun ImageSelectionScreen(
 
             LazyVerticalGrid(
                 columns = GridCells.Fixed(3),
-                contentPadding = PaddingValues(16.dp),
+                contentPadding = PaddingValues(
+                    horizontal = LocalContext.current.resources.displayMetrics.widthPixels.times(0.1f).div(LocalContext.current.resources.displayMetrics.density).dp,
+                    vertical = 16.dp
+                ),
                 verticalArrangement = Arrangement.spacedBy(16.dp),
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
