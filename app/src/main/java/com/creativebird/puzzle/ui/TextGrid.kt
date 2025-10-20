@@ -260,7 +260,7 @@ fun createTextBitmap(
     return bitmap
 }
 
-// Funktion zum Aufteilen des Text-Bitmaps in Zeilen
+// Funktion zum Aufteilen des Text-Bitmaps in Zeile
 fun splitTextBitmapByLines(bitmap: Bitmap, lineHeightPx: Float): List<Bitmap> {
     val parts = mutableListOf<Bitmap>()
     val lineHeight = lineHeightPx.toInt()
