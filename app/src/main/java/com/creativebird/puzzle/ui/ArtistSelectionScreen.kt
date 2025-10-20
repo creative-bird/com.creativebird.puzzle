@@ -46,23 +46,23 @@ fun ArtistSelectionScreen(
         ArtistOption(
             id = 1,
             resourceId = R.drawable.k1,
-            name = "Künstler 1",
-            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3),
+            name = "MUSIC",
+            imageIds = listOf(R.drawable.p11, R.drawable.p33, R.drawable.p22),
             imageTexts = listOf(
                 "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
                 "Kreativität ist Intelligenz die Spaß hat",
-                "Kunst wäscht den Staub des Alltags von der Seele"
+                "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen"
             )
         ),
         ArtistOption(
             id = 2,
             resourceId = R.drawable.k2,
-            name = "Künstler 2",
-            imageIds = listOf(R.drawable.p22, R.drawable.p33, R.drawable.p22),
+            name = "ἀφορίζειν",
+            imageIds = listOf(R.drawable.p1, R.drawable.p2, R.drawable.p3),
             imageTexts = listOf(
                 "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen",
                 "Kreativität ist Intelligenz die Spaß hat",
-                "Die Kunst besteht etwas völlig verrücktes zu denken und in Verrückten etwas Sinnvolles zu sehen"
+                "Kunst wäscht den Staub des Alltags von der Seele"
             )
         )
     )
@@ -76,7 +76,7 @@ fun ArtistSelectionScreen(
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = "KÜNSTLER",
+            text = "ART",
             style = MaterialTheme.typography.headlineMedium,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 32.dp)
